@@ -2,7 +2,7 @@
 public class binaryTree{
 
 	Node root;
-
+	//add node to the tree
 	public void addNode(int num){
 		Node newNode = new Node(num);
 
@@ -33,6 +33,12 @@ public class binaryTree{
 		}
 
 	}
+
+	/*
+	 * arrayToTree is a method that takes an integer array
+	 * and loads it into a Binary Search Tree, such that,
+	 * the binary tree is perfectly balanced.
+	 */
 	public void arrayToTree(int [] a, int start, int end){
 		
 		if(end < start)return;
@@ -45,6 +51,7 @@ public class binaryTree{
 			arrayToTree(a,mid+1,end);
 		}
 	}
+
 	/*
 	 * In order Traverse will print left node, right node 
 	 * and right node. 
@@ -56,9 +63,9 @@ public class binaryTree{
 			inOderTraverseTree(currentNode.right);
 		}
 	}
-	
-	/*
-	 *
+
+	/* Pre order Traverse will printn the parent node,
+	 * the left node adn right node.
 	 */
 	public void preOrderTraverseTree(Node currentNode){
 		if(currentNode != null){
@@ -67,6 +74,11 @@ public class binaryTree{
 			preOrderTraverseTree(currentNode.right);
 		}
 	}
+
+	/*
+	 * Post Order Traverse prints left node, right node
+	 * right node.
+	 */
 	public void postOrderTrasverseTree(Node currentNode){
 		if(currentNode != null){
 			postOrderTrasverseTree(currentNode.left);
@@ -75,6 +87,7 @@ public class binaryTree{
 
 		}
 	}
+
 	public static void main(String[] args){
 		binaryTree tree = new binaryTree();
 		/*tree.addNode(0);
@@ -92,10 +105,7 @@ public class binaryTree{
 
 		System.out.println("preOrderTraverseTree");
 		tree.preOrderTraverseTree(tree.root);
-
-
 	}
-
 }
 
 // The following class
