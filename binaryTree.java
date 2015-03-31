@@ -1,3 +1,4 @@
+import java.util.*;
 
 public class binaryTree{
 
@@ -88,6 +89,19 @@ public class binaryTree{
 		}
 	}
 
+	public void BreadthFirstSearch(Node currentNode){
+		Queue<Node> queue = new LinkedList<Node>();
+		Node temp = null;
+		queue.add(currentNode);
+		while(!queue.isEmpty()){
+			temp = queue.poll();
+			if(temp.left != null)
+				queue.add(temp.left);
+			if(temp.right != null)
+				queue.add(temp.right);
+			System.out.print(temp.number);
+		}
+	}
 	public static void main(String[] args){
 		binaryTree tree = new binaryTree();
 		/*tree.addNode(0);
@@ -100,11 +114,15 @@ public class binaryTree{
 
 		tree.arrayToTree(a,0,a.length-1);
 		
-		System.out.println("inOrderTrasverseTree");
-		tree.inOderTraverseTree(tree.root);
+		// System.out.println("inOrderTrasverseTree");
+		// tree.inOderTraverseTree(tree.root);
 
-		System.out.println("preOrderTraverseTree");
-		tree.preOrderTraverseTree(tree.root);
+		// System.out.println("preOrderTraverseTree");
+		// tree.preOrderTraverseTree(tree.root);
+
+		System.out.println("check");
+		System.out.println();
+		tree.BreadthFirstSearch(tree.root);
 	}
 }
 
